@@ -1,0 +1,46 @@
+apiVersion: skyline.local/v1
+kind: CTFChallenge
+metadata:
+    name: i-hear-your-voice
+    namespace: ctfd
+spec:
+    name: I_Hear_Your_Voice
+    description: |
+        Can you hear me ?
+    category: Forensic
+    type: standard
+    points: 200
+    upload_files: true
+    creator: Processus
+    flag: ENC[AES256_GCM,data:gi6/30eYPNeyjx4fLCRgHNyJ6FKK+JSq3WJh2g==,iv:39Bl/NCJyUlJXJyc2pxd2Q/feMUm0e3jogPRIEh6gtU=,tag:2xyS4oFiZ3IeQL8af3vtZQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2026-03-05T14:52:53Z"
+    mac: ENC[AES256_GCM,data:lfKaiVG0kuqQtzWLndsy+GMMxkJOP4HXz5erL2lQ8NsV3x/pLhinyj7XNzoGT7lsB7d5SHd9cRRfh+dekiORaqWVMJdRo4Ax2Shf8pudLBzd36f1wdk3jnXaBPr3WqbS9IqjzajyvpWvMTrHeoSwC54MBiPz3NsPBhBay85NPqc=,iv:t9ivL7Ub5LQ/VWqM2qMz0ule1pPOJPV+urK81lYILOY=,tag:9YpDNZm9DfjxRqx6rIMnXg==,type:str]
+    pgp:
+        - created_at: "2026-03-05T14:52:53Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA4Wg+3KzyZPEAQ//Y5cPEDcsd9/L1T0YvlKmNNMg2mx6vCrJ2FEBRvCvh641
+            N/s5Q0Khrkpjs6v6DX+7OZsZ3poVcSat3tenUlei5vi5bcZJ8nG/5GKYDldb02Bc
+            6m6X6A3TZBDPPSdLXWCfOiJUKIWz7AZzKlJ6b4S6Pawbj5WYtIC5/YHQwoUnQCQw
+            Rjoq2t6tZbqPPPkXdVjEKNtpDADzKfLT/wHwEA7QszeGppf3KwE8KAzQDyGqarEW
+            ZtxiX3iyaXcVmji7CUMsjMLMc6Ah0LEHaPCrNGsy5J5Klvwx82LFJlBbjt8neTbC
+            FaYaQUP0kr0SjL++aLwiHIDWWGXrdoKHAV6pyS4qx1+jeYzG/csW34ZNk8r+m2Gs
+            YZDbXjDO5bTXokeODd8aZJM9AuMYhyOpGpCuCKeiiaVbpGK7M1VUDr0+sKJ1NoI4
+            kTB6MWJhoPEHnuQXP9b6ebQuajxWGhGuWwAjLEeC4i0RZZm/TEPNWkMS1YVflC1N
+            UCjJUcNyPfMExEyLaX0+Iy4MS6dHLEgyzPj3HDhLn06DtyQYQy/1nWU7KSOakKTJ
+            KlpShQCCImXydECLeEKhXSXdq//zaevV7KTuQv+W8GFjVrEx+rfGknnjSNtF0foS
+            U+mWM0XlqV7XcXRQhKsuY20mb2+UpHPN4UJwlJ8NJi5RyKl3qXxvvuxipUCxcjLS
+            XgERCHuH/1fOdFubvceWZQhIyygldWRGU+/22iX7AOfE4NgOtl3z25YQ2GQfkp5x
+            VmDzZjVOzfMml4rDL3y5s8ET5+rlc7uUFr+vSL66qiKLOJncK8K7msuodn6LpFk=
+            =ip8H
+            -----END PGP MESSAGE-----
+          fp: 2F678007F08254265530095FB5B68F8BCE0CB069
+    encrypted_regex: ^(data|stringData|flag|password|secret)$
+    version: 3.8.1
