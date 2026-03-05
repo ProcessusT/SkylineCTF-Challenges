@@ -1,10 +1,10 @@
 apiVersion: skyline.local/v1
 kind: CTFChallenge
 metadata:
-    name: russian_telemetry
+    name: russian-telemetry
     namespace: ctfd
 spec:
-    name: russian-telemetry
+    name: Russian Telemetry
     description: |
         La mère Patrie a encore frappée...
     category: Forensic
