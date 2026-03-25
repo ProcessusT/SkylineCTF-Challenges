@@ -169,6 +169,51 @@ def encrypt_source(folder_path):
         print(f"Encryption failed: {status.status}")
         print(status.stderr)
 
+def encrypt_all_uploads(base_dir="."):
+    """
+    Scans every challenge folder under base_dir for a 'uploads/' subdirectory and
+    GPG-encrypts any file that is not already a .gpg file.
+    This is a one-shot migration utility for files already committed in plaintext.
+    """
+    rprint(f"\n[bold cyan]🔐 Migration : Chiffrement de tous les fichiers uploads/ du dépôt[/bold cyan]")
+    rprint("[cyan]" + "-" * 50 + "[/cyan]")
+
+    encrypted_count = 0
+    skipped_count = 0
+
+    challenge_dirs = sorted(
+        d for d in os.listdir(base_dir)
+        if os.path.isdir(os.path.join(base_dir, d))
+        and not d.startswith('.')
+        and not d.startswith('__')
+        and d not in ('Others',)
+    )
+
+    for challenge in challenge_dirs:
+        uploads_path = os.path.join(base_dir, challenge, "uploads")
+        if not os.path.isdir(uploads_path):
+            continue
+
+        files = [
+            f for f in os.listdir(uploads_path)
+            if os.path.isfile(os.path.join(uploads_path, f)) and not f.endswith(".gpg")
+        ]
+
+        if not files:
+            rprint(f"   [dim]{challenge}/uploads/ — aucun fichier à chiffrer[/dim]")
+            skipped_count += 1
+            continue
+
+        rprint(f"\n[bold yellow]{challenge}/uploads/[/bold yellow] ({len(files)} fichier(s) à chiffrer)")
+        for fname in files:
+            encrypt_standalone_file(os.path.join(uploads_path, fname))
+            encrypted_count += 1
+
+    rprint("\n[cyan]" + "-" * 50 + "[/cyan]")
+    rprint(f"[bold green]✅ Migration terminée.[/bold green] {encrypted_count} fichier(s) chiffré(s), {skipped_count} dossier(s) vide(s) ou déjà chiffrés.")
+    rprint("[dim]N'oubliez pas de committer les fichiers .gpg et de supprimer les anciens fichiers en clair.[/dim]")
+
+
 def main():
     parser = argparse.ArgumentParser(description="SkylineCTF Secret Management")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -183,6 +228,10 @@ def main():
     # Source (GPG Zip)
     p_encrypt_src = subparsers.add_parser("encrypt-source", help="Zip and encrypt a source folder (GPG)")
     p_encrypt_src.add_argument("folder", help="Path to the folder to encrypt")
+
+    # Migration: encrypt all existing plaintext uploads
+    p_migrate = subparsers.add_parser("migrate-uploads", help="GPG-encrypt all existing plaintext files in uploads/ folders across the repo")
+    p_migrate.add_argument("--dir", default=".", help="Base directory to scan (default: current directory)")
 
     # Wizard
     p_wizard = subparsers.add_parser("secure", help="🧙‍♂️ Interactive Wizard to secure a challenge")
@@ -209,6 +258,8 @@ def main():
             decrypt_config(args.file)
         elif args.command == "encrypt-source":
             encrypt_source(args.folder)
+        elif args.command == "migrate-uploads":
+            encrypt_all_uploads(args.dir)
         elif args.command == "secure":
             run_wizard(args.folder)
 
@@ -419,6 +470,7 @@ def run_tui():
         choices=[
             "📝 Créer un Challenge.yaml",
             "🔐 Sécuriser un challenge existant",
+            "📦 Chiffrer tous les uploads/ existants (migration)",
         ],
         style=custom_style,
         use_indicator=True
@@ -458,6 +510,15 @@ def run_tui():
         if target:
             run_wizard(target)
             rprint("\n[dim]Terminé.[/dim]")
+
+    elif "migration" in action:
+        rprint("\n[bold red blink]⚠️  ATTENTION AVANT DE CONTINUER ⚠️[/]")
+        rprint("[bold white]Cette opération va chiffrer TOUS les fichiers en clair dans les dossiers uploads/[/bold white]")
+        rprint("[yellow]Les fichiers originaux seront supprimés. Assurez-vous d'avoir un backup ![/yellow]\n")
+        if questionary.confirm("J'ai une sauvegarde et je veux chiffrer tous les uploads", default=False, style=custom_style).ask():
+            encrypt_all_uploads(".")
+        else:
+            rprint("[red]Opération annulée.[/red]")
 
 
 def encrypt_standalone_file(file_path):
@@ -537,13 +598,31 @@ def run_wizard(target_folder):
     rprint("[cyan]" + "-" * 50 + "[/cyan]")
     rprint("[bold green]✅  Sécurisation terminée.[/bold green]")
 
-    # 4. Submit via PR
-    rprint(f"\n[bold blue][4/4] Soumission via Pull Request[/bold blue]")
+    # 4. Encrypt uploads/ files (mandatory)
+    uploads_path = os.path.join(target_folder, "uploads")
+    if os.path.isdir(uploads_path):
+        rprint(f"\n[bold blue][4/4] Fichiers uploads/[/bold blue] ({uploads_path})")
+        files_to_encrypt = [
+            f for f in os.listdir(uploads_path)
+            if os.path.isfile(os.path.join(uploads_path, f)) and not f.endswith(".gpg")
+        ]
+        if files_to_encrypt:
+            rprint(f"   [yellow]Chiffrement automatique (Obligatoire) de {len(files_to_encrypt)} fichier(s)...[/yellow]")
+            for fname in files_to_encrypt:
+                encrypt_standalone_file(os.path.join(uploads_path, fname))
+        else:
+            rprint("   [dim]Aucun fichier à chiffrer (déjà chiffrés ou dossier vide).[/dim]")
+    else:
+        rprint(f"\n[bold blue][4/4] Fichiers uploads/[/bold blue]: [dim]Pas de dossier 'uploads' (Ignoré)[/dim]")
+
+    # 5. Submit via PR
+    rprint(f"\n[bold blue][5/5] Soumission via Pull Request[/bold blue]")
     do_pr = questionary.confirm("Soumettre ce challenge via Pull Request ?", default=True, style=custom_style).ask()
     if do_pr:
         submit_pr(target_folder)
     else:
         rprint("   [dim]Soumission ignorée.[/dim]")
+
 
 
 def load_github_token():
