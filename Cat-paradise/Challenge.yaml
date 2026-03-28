@@ -1,0 +1,44 @@
+apiVersion: skyline.local/v1
+kind: CTFChallenge
+metadata:
+    name: cat-paradise
+    namespace: ctfd
+spec:
+    name: Cat Paradise
+    description: "Bienvenue sur CAT PARADISE, le site dédié aux plus beaux chats d’internet \U0001F431\nEntre photos adorables, fiches détaillées et galerie communautaire, tout est réuni pour ravir les amoureux des félins : http://20.57.11.123\n"
+    category: Web + Azure
+    type: standard
+    points: 400
+    creator: Processus Thief
+    flag: ENC[AES256_GCM,data:rgcy3Gs/HdUjt02IKRi106Sg1w/uWzQ=,iv:Pg18fX5in2TmrLKqwXUHlG4dFHDxiL/lNEuA0S/9f90=,tag:fE+4HqyARONy09teI+LN+w==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2026-03-28T22:48:31Z"
+    mac: ENC[AES256_GCM,data:sYI3ec6Xj6Y96Oq9tX45jZSgLpCA2YIVF0dpGe5OiYkGiRpEecLsGeMS2i0ABV5vOoxzdvxyA8Q2uxDNVEM+nd1yoVVyKH83b0r4K+BKtyJTI5Bt52QxIfedX/jVQGyV++QB3SBlNNJunon12wFOXNrcK67v1X+xx0837fxlwpM=,iv:EwHDQMUS7DLHxb1jLP0H00Dsr8mtsiLDPtyc9uurZEg=,tag:2C+LIy/GGX5HlRW8qandmg==,type:str]
+    pgp:
+        - created_at: "2026-03-28T22:48:31Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA4Wg+3KzyZPEARAAzZzCuoiVqLdSDAMf8tYVaK9YQPDrMgSIJ1OrIqpk+6jd
+            rwHz9+VTTG5no0tJbUbit+XaT+OMttfnSI3w+yuzsKVB0d8j67WUX7FU0lX0g+ke
+            ijNJGMR2UYJ2jWWeAE53PTe/d0nsWrESm13g1r4N0sF/UmUgJivNcXNKH/TSla3p
+            sFR4FWVASwE8YGwo7yPXDMJhabZ/eGhCxg8mGnvMSfV/QAkQa2I42O8haDWkR10H
+            SV9uR0RfJB0LQ1znleSIesIiZmlwz6XMeFPK8d+IX/XyF4HUBoRgLz/pGn1hkcde
+            wDsff152d6woDH/g0oJWJueyfBktRBDLtahCJUO4dtFE1P3ZmAX0fGwI2ktPwWC8
+            FQCupWvDoAOiOIw3u5nNTNJtIxKfvBgveNkGQaXlxCap8z1/8F47+FzMx6n/mnZV
+            bgE5cuutknW8HeiPZce52rEp6TtLRria/ghRKXy+KYCH6qgieVvhQ1xczlmNXVaT
+            5h1+aQj10dDXSKWTuTFyU2MHDDSajzn9vgGxDDuNrQUCRUUKc32AKd4IjErC8K5i
+            I6Jz1rT5DL4SuiHeN/tNGix/ealk/SnekfPw/cQnbgNPqqsbVdiDRfjVPURNBgQG
+            XKfChcF0fMuvxfZKnxBUODSTdOi/FM/g2jYiiZX+ZRzP/z3ostVnKzLoBL57adPS
+            XgEB7hp21LOTIX/k+kaX40iuhDrI0d0C1HCP9Uw2EJFbCcuEgqjLvudoaFT3ljHc
+            Ru/yRHwEO8GT5HXByegb3gzmAvPES3deMdMWLRBKnKKqBRhjvi4Ze6EkTidZPz8=
+            =YKXx
+            -----END PGP MESSAGE-----
+          fp: 2F678007F08254265530095FB5B68F8BCE0CB069
+    encrypted_regex: ^(data|stringData|flag|password|secret)$
+    version: 3.8.1
