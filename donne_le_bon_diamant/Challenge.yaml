@@ -1,0 +1,47 @@
+apiVersion: skyline.local/v1
+kind: CTFChallenge
+metadata:
+    name: donne-le-bon-diamant
+    namespace: ctfd
+spec:
+    name: Donne_Le_Bon_Diamant
+    description: |
+        On raconte que de nombreux diamants circulent dans une célèbre liste de mots de passe. Certains brillent, d’autres trompent… mais un seul est authentique.
+        À vous de fouiller, tester, et identifier le bon diamant parmi tous ceux présents. Une fois trouvé, il révélera enfin le contenu caché.
+    category: CrackMe
+    type: standard
+    points: 200
+    upload_files: true
+    creator: Processus Thief
+    flag: ENC[AES256_GCM,data:diwsyrRCUT308fO6nY4ce+/5Wukb1lV9dJJKvug60ehnSuYSgq75,iv:/4+piIH8t2jejtNo0ZYzHDr6QrAIwo8vOFB0XGfXy0A=,tag:aKWfRIZLl04BNFbqnz0VbQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2026-03-28T19:37:43Z"
+    mac: ENC[AES256_GCM,data:XyPWkfEtR3QDZT+0iiMa9vO/8+aXhkbo8rLmYh4O0htN995MAKTqUCdECEvqfHRKWvr96S7+DRpG50bratEp0/AJnMH9DUhfTj+Gd1H5VCFKEPHN7Xzv2THrxct0PERVoJGGB5rqTZ11WWg+H5eP2BRfxh8MV8xJ9ZIlmi0Uu6E=,iv:ntKQg37ngreoeZfhb93DLwVeQehC5j5ZynD/fWDrOIg=,tag:z9eqJ2jrmoBYNtZeNVlwXg==,type:str]
+    pgp:
+        - created_at: "2026-03-28T19:37:43Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA4Wg+3KzyZPEARAAlaoiwDYduUH3ZcRegIHJbEFQtLlZ/zS12CuV0wAsmcii
+            LPYuKUBHZ5SQDjoPKlY05LUedcBW60jkaxLBsTaMBJ1hVlFh4FtbNMKqoAL1AFNi
+            C/shCn0s8AcQvUHFkfQd2XBXICGn/0g5j4bjf91oaf9rFIL7zNPF8Pzxz1L/Jv++
+            JuOQllPkEYzCxtJDwTy1UoRtF4pEVUNQwIUx5kCYlG7SfsTTN95RDKhHvUUZbXwn
+            Rtjk9kT0wLlSdK8RWo1coDxsBi3tsO/uQDhs0nGk1wZgroKnXBQ/nlSafa5QWp3i
+            8E7J3Ac1ltUrQPfXo01ZLwwMCLvTvqSmcPHN+50yfU95b0rf8LVKVbJssqL8Hv+4
+            IQas0JHCuoYSH0dl88GWCTq2pn/jhvfagtR5/TYd/yLQ+T0PNRCXluM07ieh3KSP
+            3S14skFKjjaqpTOiiu/sRGOonvX/KuZWBsSSqxqp4mzHzzGSXhuiLEqSitn6iGd8
+            T8sgvb0FjPFGK59WcD8Tw48Mn/pQPBP7ivsvBwK9Nim45wuBZfFkfFih0/kjeQVN
+            5KcRDRLOBEbjAjdPn8+0vZNU13WAr0Op2ncgL0oms8tzawifEuzEaZo9M9Z7Ttet
+            lu1eXA0AeokTwZpqPA/TwQsoqfG98RwNdh7bgsOpgrzIiuoEoOyTGmoDZkSNcqLS
+            XAEQ7oFdYKm4KALQ5IrwSfIZGh+DQG+hK0sO/gV/nbkkCMbEBfYCl9NzmXbSpFjI
+            nrUtCSBNPVqENHN5EaZyZLnp136yioMq1JX3pl55ES4XN2NP7goA+Qh3Ajhu
+            =uUNt
+            -----END PGP MESSAGE-----
+          fp: 2F678007F08254265530095FB5B68F8BCE0CB069
+    encrypted_regex: ^(data|stringData|flag|password|secret)$
+    version: 3.8.1
