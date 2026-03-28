@@ -1,0 +1,50 @@
+apiVersion: skyline.local/v1
+kind: CTFChallenge
+metadata:
+    name: quand-la-reponse-a-incident-contourne-l-edr
+    namespace: ctfd
+spec:
+    name: Quand la réponse à incident contourne l'EDR
+    description: |
+        En tant qu'étudiant investi vous n'avez pas pu passé à côté de la conférence présentée par votre intervenant préféré sur le contournement d'EDR grâce à des outils d'analyse forensique légitimes.
+        A l'aide du support de présentation et de la capture mémoire réalisée, retrouvez le nom de la machine (DOMAIN) et le hash NT de Jeanine pour valider le flag, sous la forme :
+        HIT{"Nom de la machine"-"Hash NT de Jeanine"}
+
+        Lien de la capture mémoire : https://hackday.lestutosdeprocessus.fr/memory.raw
+    category: Forensic
+    type: standard
+    points: 800
+    upload_files: true
+    creator: Processus Thief
+    flag: ENC[AES256_GCM,data:5iBGMhXU16/jSwzmjqvwUFFb6cABcXTFXNI65RyxWgBa0Fhrzk7wkxlp,iv:U/7i0f140JRkpOXo2bpILaO00KuWGpi/o6yifFhhNFA=,tag:fiGmpSbCFRWH076aYQQYwA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2026-03-28T19:52:13Z"
+    mac: ENC[AES256_GCM,data:8cZ1yiOBUY+zQPo1kzgGUhPTd5pBlqZwK6xGTWdcZzy1DzPAsCNdVN3rv9HZXA5RPC9VtOrJ7RNqNMT1AjOaxgVATs/tTBwWkgnd2OG2NuFQ+jpTJGR7wEwcvke7YUhxtUVEUfv0C7aalApI0Z+YYUdFvVPtwjnU2cm/74nTuIw=,iv:pu50yEAzzKz2cF4vDh1+Y6te9Mn0FjUEBwsWu0iWIk0=,tag:7Cla/pPYfuXb6oddGFJnwg==,type:str]
+    pgp:
+        - created_at: "2026-03-28T19:52:13Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA4Wg+3KzyZPEAQ//VFJEmy0x6fJR5P70AgYX4vNBrPzGIXBblSNJhiP3oW7g
+            UImHQWfIkVt4NFSWc3lRYdjpJROdins6Ht0tN7CXUpU2rIvfsuDSL+QmPPvTESNA
+            hpEkaqWZ3p+i9tNnrmDrYGnm+JhuuKutY5MJpREUcRvFQm1uUFNNFtP9zZQE8VAC
+            I45XRJopcNR4EjwMjuxbQjjTmBkY9ude9y5ojMapnILHqmaZPa2flR7V+e8nQgR7
+            gtG/maub8LZQ1RmQxffkaGe3Ediv2UOblxjTyDfNnTAmIVEeBxHHQuZTzXFgfeAb
+            Qjsmxflme5A0PfYYwCTomnnYXqahCPi5qlbnQExkWqaZ+cOesjqQtvhUFG2/kF8A
+            RPnp77B42/21FVJtg2ek6ApxwD/17eXpUvh2/70ttS+e+loQiMmocDLBITcqkL1d
+            /kwOHuYjQU/ahfdC7fm7O73AVyOmlUIpm/HNUZGMweP6T8Nqc46zeMeRee4G7QAv
+            7owjUFUSG2KmOVDAhSXvkEBbR0KEDtsp8gA4SR+uYbmOaPsMY0AKeqnbIfvf19xt
+            PHQp32FEnBZ74ae+T/Ejc0gCslutChm+SbANH0+ZoM99p8ieuq64g4nrJCq7B5nb
+            30QyYJ+VSo+AZfE/8RIq/crqVJwEq19S0K2/nGJ4FTrDNmJrSYtb5S6QRDvnXMbS
+            XgFpbQ8zb++539FGY0nv74Do8PLOoqg05elgUB2BUWLW5gX3BPU5GdY1wHtHBxOW
+            bb9mnGmE8kPiA/xUDbhugLjqgLbYlLrVGxqHYFD467DnESIP9AizS267H5JxTo4=
+            =blQ8
+            -----END PGP MESSAGE-----
+          fp: 2F678007F08254265530095FB5B68F8BCE0CB069
+    encrypted_regex: ^(data|stringData|flag|password|secret)$
+    version: 3.8.1
