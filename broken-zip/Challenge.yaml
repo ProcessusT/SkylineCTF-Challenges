@@ -1,0 +1,47 @@
+apiVersion: skyline.local/v1
+kind: CTFChallenge
+metadata:
+    name: broken-zip
+    namespace: ctfd
+spec:
+    name: Broken_Zip
+    description: |
+        Le stagiaire a voulu installer 7z mais il a encore fait n'importe quoi et l'archive contenant le flag est corrompue...
+        Réparez les en-têtes et récupérez le bon flag
+    category: Forensic
+    type: standard
+    points: 100
+    upload_files: true
+    creator: Processus Thief
+    flag: ENC[AES256_GCM,data:ZbyFuiQa4tzefAkflXu7yL7G,iv:RltO+ZgNHqEJE/fAAPqwi41K/nEZRW169TXPiANrjV8=,tag:brQtwhm/OHMdeWDatGZWsQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2026-03-28T20:10:40Z"
+    mac: ENC[AES256_GCM,data:6Lzwk/DxztRJ7MNkjK183t7HiVe8+vzlkB2mD1ZYMryhHARGOILybe0VLUVdGn058chdb3KNyQPRe5C1/F1EUN0zcsnpmqhWU5HE29exlK9qHfuwc1C1PNvTCwUE2FEAjCln78hitheblOUSrcicLzuA17gzA/JsnYHIKDZ7SbM=,iv:KL6QbNarJDAF8tuD7pvhnE5yJWh4+mrEMIYLKvfASDA=,tag:qJQL5eO9hSYSgVT7CYbZyQ==,type:str]
+    pgp:
+        - created_at: "2026-03-28T20:10:40Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA4Wg+3KzyZPEARAAls7CLkBJIHWgcNT4awRb6NCaPTnt3wCDG0pnwysAym1L
+            EEOGMtmZ44EVSQAvS+TS50dBRSPLUWSkjaLZUSxu4/gvffUc+ZNNdOjFYb84bgJg
+            m9q5mmhg4vhL00r84b+9STb3586qZ8CG7AjYSxRov779qj7Vwh+rj/zvCATanlKX
+            d4FNTPNwdYZ5kz4fonMyjDWeiY/V3+rp2IS6xjyePh4VfwttvlCXDdFIw2Asgigz
+            RkZm5G4XNF1QdcEOyFqiNwNhFXwZXE3UYw1fjulmy/hgjoNb2kRAgfr7TP9ynCem
+            4ASnqh9eQ/yrfwPfUz+sgigLR/NG03ksv8w6AfAfDGD9TjruxNhcWRBiI+OJNRZd
+            kyjeP4w30VGk/96zKOPceNhLugs5klGuJJuICTq+P0zKZeLS+xFTgh56chdETuQr
+            87OCGHOU9PRw/YVfDQf5291ccy7SICRHmm7frNt0PW+JCqW4HmvfZmEzarGfv1gy
+            4WdvgrFz5j4lptN770CPQqzVBzjQDshUzdAOaRL1kxZ5ketIWJGi7KMQxhzQDkbO
+            /SGcgA8Bm7Ua2Ml96eT7HnfbXyfsCZWq6KtV5WcpdRMmqx7BHmMlXB+xX+bYqaDw
+            roc/wt9rVF+EfWh/c4YK1wI0Vs0xBkzY7osGasLEXQPl53xJ+XnjbilP8NQzi57S
+            XgGdM5cznm7hldZQz3bHeDg84e2yCvQQfBFvVFTS+6j3z438XkxYON4z373iMPnF
+            rzQXJUmRdSbF8ls4FKY91TjWvVV0XedYcnweNZL2YDmPN3j6V8/S5e1u3eu24HU=
+            =EjzK
+            -----END PGP MESSAGE-----
+          fp: 2F678007F08254265530095FB5B68F8BCE0CB069
+    encrypted_regex: ^(data|stringData|flag|password|secret)$
+    version: 3.8.1
