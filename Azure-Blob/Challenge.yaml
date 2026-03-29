@@ -1,0 +1,49 @@
+apiVersion: skyline.local/v1
+kind: CTFChallenge
+metadata:
+    name: azure-blob
+    namespace: ctfd
+spec:
+    name: Azure-Blob
+    description: |
+        Saurez-vous maitriser Azure pour retrouver le flag ?
+        Attention, il faudra peut-être passer par un autre utilisateur pour le retrouver !
+        Voici vos identifiants :
+        Username : paul.robert26@azurehit2026thiefin.onmicrosoft.com
+        Password : gDqa7MGOVr00zzIDEB7C
+    category: Azure
+    type: standard
+    points: 400
+    creator: Processus Thief
+    flag: ENC[AES256_GCM,data:20t7dX1qIn801f4hmBifDAqbI0OJ7vKyFIZ0mjThVcR2,iv:65pKk2JUZUN2Qi15v6Pq0H4MfIYI2CeD8fzjevVpRvQ=,tag:cdBMvv9po2F3829IRMtoFw==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2026-03-29T17:06:09Z"
+    mac: ENC[AES256_GCM,data:9ZnpYYv2GPAnrlUCm7gznJmyAXi/DNsLNViHfopiqkzNaiK4V3IrGHpgCxkXgwi0lQ/s4LtQDy7zpbN4yKMT2FeyI2ftY1txst2tgOYOGmUYadzUewDmQtmJ+zqmIN3X76F1vXvnh7N6bkV/kKcvy7+ozqFmtGBwIRObV98JDBM=,iv:98tiOVWUeggXhxOc25t2ZoWXJe7k1/LvrZr1yVqdefM=,tag:5yEX646y15lDj9qdspEHgA==,type:str]
+    pgp:
+        - created_at: "2026-03-29T17:06:09Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA4Wg+3KzyZPEAQ//Xv+R6anTLx5tdgeJk2yJZv9H1U6hC7Mr+E0DziKrKFbZ
+            uPY7RAUfb7YIPxbyiT8Fs8dbTCSZNzqXYRP+Gi5+MWlneHb96RV6cGArrGF3uysi
+            PiUm1dwou6GkOYtHiz+85irDqgN+eIco5b2oa0OPFZMFCubADP8+ZFp4Lo4WRa67
+            e5s/7ryYpiGKpmE3T70L+qjSZR5tq/fJ9bf4NvatZgjmEPkgqGWtY+QECRvhlHUk
+            XNyyjFL2adAgf5fxG6kO8h1eF4TTE0q2UxLPBf6lWwDXGMGyieslQtMyYJ6bDF1Q
+            5UhYL6tqSw1jB+2Iega2smQcfnuho8xw11CI25c15ljynvv+UJf23nyp1dlTIiZg
+            WnxuFS7AdH6T1p96h0HW7xsbW79HjT0b5dOvvJszFlSpDzo9LgQhchlkd9cbzJaB
+            oweHMC2qD13kbtTum0siHh7xKspltr9E7OpdFAl+a22UgEjfoWtkH2cJIHm8nuk5
+            DdQX6PYJuYu/BbTGFBDn8s+fdoKn1+khhpj8CU7zaZpXUXMmjNSp3jXM2KtiLlHE
+            ykrFg39qF+pZw3dmMH69d40841vvC7He+Rb5SQlLifAJ4lDcFjxKiTUK3aVMJRSF
+            DMU6fpt72yE8XXQo3HbShcuOmsE12q8e62TaiaKcFm7I+RY3GV9ISc21NqVxHXLS
+            XgH0Bi2JFofDBDPruuscNsOFnK5lF6k0K5fvW2sHDiaFRX6TKMnsaX6ZgYgv0UVI
+            ub5x6fZBjFAg2Cr58tOmPxs6pAoM/Uq645qSVLiMT/YUW+pTbNT5uMv/EQPY/ns=
+            =dDmp
+            -----END PGP MESSAGE-----
+          fp: 2F678007F08254265530095FB5B68F8BCE0CB069
+    encrypted_regex: ^(data|stringData|flag|password|secret)$
+    version: 3.8.1
