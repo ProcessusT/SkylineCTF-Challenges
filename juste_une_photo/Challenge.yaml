@@ -1,7 +1,7 @@
 apiVersion: skyline.local/v1
 kind: CTFChallenge
 metadata:
-    name: juste-une-photo
+    name: juste_une_photo
     namespace: ctfd
 spec:
     name: Juste_Une_Photo
