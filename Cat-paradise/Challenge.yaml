@@ -6,7 +6,7 @@ metadata:
 spec:
     name: Cat Paradise
     description: "Bienvenue sur CAT PARADISE, le site dédié aux plus beaux chats d’internet \U0001F431\nEntre photos adorables, fiches détaillées et galerie communautaire, tout est réuni pour ravir les amoureux des félins : http://20.57.11.123\n"
-    category: Web + Azure
+    category: Web
     type: standard
     points: 400
     creator: Processus Thief
